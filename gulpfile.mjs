@@ -6,6 +6,7 @@ import uglify from "gulp-uglify";
 import concat from "gulp-concat";
 import imagemin from "gulp-imagemin";
 import browserSync from "browser-sync";
+import autoprefixer from "gulp-autoprefixer";
 
 const sass = gulpSass(dartSass);
 const bs = browserSync.create();
@@ -30,7 +31,7 @@ export function scripts() {
 
 export function images() {
   return gulp
-    .src("src/images/*")
+    .src("src/images/*", {encoding: false})
     .pipe(imagemin())
     .pipe(gulp.dest("dist/images"));
 }
@@ -43,6 +44,7 @@ export function serve() {
   });
   gulp.watch("src/scss/**/*.scss", styles);
   gulp.watch("src/js/**/*.js", scripts);
+  gulp.watch("src/images/*", images);
   gulp.watch("*.html").on("change", bs.reload);
 }
 

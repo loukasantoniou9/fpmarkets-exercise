@@ -9,7 +9,14 @@
   <body>
     <header class="hero">
       <nav class="navbar">
-        <div class="logo">fpmarkets</div>
+        <div class="logo">
+          <img src="dist/images/logo.svg" alt="FP Markets Logo">
+        </div>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
         <ul class="nav-links">
           <li><a href="#">QUICK START</a></li>
           <li><a href="#">TRADING</a></li>
@@ -18,23 +25,109 @@
           <li><a href="#">COMPANY</a></li>
         </ul>
         <div class="nav-actions">
-          <span class="language">EN</span>
+          <span class="language">
+            <img src="dist/images/flag.svg" alt="Language Flag">
+            <span>EN</span>
+          </span>
           <a href="#">LOGIN</a>
           <a href="#" class="btn-live">OPEN LIVE</a>
         </div>
       </nav>
 
       <div class="hero-content">
-        <h1>Performance-driven technology and ultra-low spreads</h1>
-        <h4>Trade the global markets with a leading Forex broker.</p>
+        <h1><span>Performance-driven technology and ultra-low spreads</span></h1>
+        <h4>Trade the global markets with a leading Forex broker.</h4>
         <div class="hero-buttons">
           <a href="#" class="btn-start-trading">START TRADING</a>
           <a href="#" class="btn secondary">TRY DEMO</a>
         </div>
       </div>
-      <div class="hero-image">
+      <!-- <div class="hero-image">
         <img src="hero-graphic.png" alt="Trading Assets" />
-      </div>
+      </div> -->
     </header>
+
+    <section class="trade-section">
+      <h3>What can you trade with FP Markets?</h3>
+      <div class="trade-slider">
+        <div class="trade-cards">
+          <div class="trade-card">
+            <h4>Forex trading</h4>
+            <p>60+ forex currency pairs on MT4</p>
+            <img src="dist/images/forex-g.jpeg" alt="Forex Trading 1">
+          </div>
+          <div class="trade-card">
+            <h4>Forex trading</h4>
+            <p>60+ forex currency pairs on MT4</p>
+            <img src="dist/images/forex-phones.png" alt="Forex Trading 2">
+          </div>
+          <div class="trade-card">
+            <h4>Forex trading</h4>
+            <p>60+ forex currency pairs on MT4</p>
+            <img src="dist/images/forex-coin.png" alt="Forex Trading 3">
+          </div>
+          <div class="trade-card">
+            <h4>Forex trading</h4>
+            <p>60+ forex currency pairs on MT4</p>
+            <img src="dist/images/forex-corn.png" alt="Forex Trading 4">
+          </div>
+          <div class="trade-card">
+            <h4>Forex trading</h4>
+            <p>60+ forex currency pairs on MT4</p>
+            <img src="dist/images/forex-corn.png" alt="Forex Trading 5">
+          </div>
+        </div>
+        <div class="slider-controls">
+          <button class="prev-btn">←</button>
+          <button class="next-btn">→</button>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      document.querySelector('.hamburger').addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.toggle('active');
+      });
+
+      document.addEventListener('DOMContentLoaded', function() {
+        const slider = document.querySelector('.trade-cards');
+        const cards = document.querySelectorAll('.trade-card');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        
+        let currentIndex = 0;
+        const cardWidth = cards[0].offsetWidth + 32; // Including gap
+
+        function updateSlider() {
+          const maxIndex = cards.length - 1; // Changed to show one card at a time
+          slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+          prevBtn.disabled = currentIndex === 0;
+          nextBtn.disabled = currentIndex >= maxIndex;
+        }
+
+        prevBtn.addEventListener('click', () => {
+          if (currentIndex > 0) {
+            currentIndex--;
+            updateSlider();
+          }
+        });
+
+        nextBtn.addEventListener('click', () => {
+          if (currentIndex < cards.length - 1) { // Changed to total cards minus 1
+            currentIndex++;
+            updateSlider();
+          }
+        });
+
+        // Initial setup
+        updateSlider();
+
+        // Update on window resize
+        window.addEventListener('resize', () => {
+          currentIndex = 0;
+          updateSlider();
+        });
+      });
+    </script>
   </body>
 </html>

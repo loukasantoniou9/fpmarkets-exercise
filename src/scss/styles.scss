@@ -1,6 +1,8 @@
+// Variables
 $primary-color: #ffffff;
 $secondary-color: #19222e;
 
+// Mixins
 @mixin text-style($font-weight, $font-size, $line-height, $letter-spacing) {
   font-weight: $font-weight;
   font-size: $font-size;
@@ -15,18 +17,23 @@ $secondary-color: #19222e;
   border-radius: $border-radius;
 }
 
-a {
-  margin: 10px 8px 10px 8px;
-  @include text-style(400, 14px, 14px, 0);
+@mixin hamburger-line {
+  width: 24px;
+  height: 2px;
+  background-color: $primary-color;
+  transition: all 0.3s ease;
 }
 
+// Global Styles
 body {
   margin: 0;
   padding: 0;
   font-family: "Inter", sans-serif;
+  height: 100vh;
 
   header {
-    background: linear-gradient(to right, #08174e, #0f236b);
+    height: 100vh;
+    background: linear-gradient(to right, #08174e, #0f236b 59.4%, #000000 59.4%);
     text-decoration: none;
     color: $primary-color;
     a {
@@ -34,13 +41,29 @@ body {
       color: $primary-color;
     }
   }
+
+  // Mobile and tablet split (horizontal) - up to 1200px
+  @media screen and (max-width: 1200px) {
+    header {
+      background: linear-gradient(to bottom, #08174e, #0f236b 70.5%, #000000 70.5%);
+    }
+  }
 }
 
+a {
+  margin: 10px 8px 10px 8px;
+  @include text-style(400, 14px, 14px, 0);
+}
+
+// Hero Section
 .hero {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   text-align: left;
   padding: 1rem 5rem;
+
+  // Navbar Styles
   .navbar {
     width: 100%;
     display: flex;
@@ -58,31 +81,570 @@ body {
     }
 
     .nav-actions {
-      //   a {
-
       .btn-live {
         padding: 16px 24px;
         @include button-style(#00bdff, inherit, 1px, 32px);
         @include text-style(400, 14px, 14px, 1px);
       }
     }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 2;
+
+      span {
+        @include hamburger-line;
+      }
+
+      @media screen and (max-width: 600px) {
+        display: flex;
+      }
+    }
+
+    .logo {
+      img {
+        height: 24px;
+        width: auto;
+      }
+
+      @media screen and (max-width: 1200px) {
+        img {
+          height: 20px;
+        }
+      }
+    }
+
+    @media screen and (max-width: 1200px) {
+      .nav-links {
+        background: linear-gradient(to bottom, #08174e, #0f236b 70.5%, #000000 70.5%);
+      }
+    }
   }
+
+  // Hero Content Styles
   .hero-content {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+    margin-top: 120px;
+
     h1 {
-      @include text-style(600, 60px, 60px, -5%);
+      @include text-style(600, 60px, 1.1, -0.02em);
+      margin-bottom: 1.5rem;
+      max-width: 580px;
     }
+
     h4 {
-      @include text-style(300, 22px, 28.6px, -3%);
+      @include text-style(300, 22px, 1.3, -0.01em);
+      margin-bottom: 2.5rem;
+      max-width: 450px;
     }
-    .btn-start-trading {
-      padding: 16px 24px;
-      @include button-style(
-        transparent,
-        inherit,
-        1px solid $primary-color,
-        32px
-      );
-      @include text-style(400, 14px, 14px, 1px);
+
+    .hero-buttons {
+      display: flex;
+
+      a {
+        text-transform: uppercase;
+        text-decoration: none;
+        margin: 0;
+      }
+
+      .btn-start-trading {
+        width: 175px;
+        text-align: center;
+        padding: 16px 0;
+        @include button-style(
+          transparent,
+          inherit,
+          1px solid $primary-color,
+          32px
+        );
+        @include text-style(400, 14px, 14px, 1px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .btn.secondary {
+        padding: 16px;
+        @include text-style(400, 14px, 14px, 1px);
+      }
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    padding: 1rem;
+    
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 12px;
+
+
+      .logo {
+        font-size: 18px;
+        order: 1;
+        color: $primary-color;
+      }
+
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, #08174e, #0f236b 70.5%, #000000 70.5%);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+
+        &.active {
+          display: flex;
+        }
+
+        li {
+          display: block;
+          margin: 2.5rem 0;
+          text-align: center;
+          
+          a {
+            font-size: 24px;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            margin: 0;
+            letter-spacing: 0;
+          }
+        }
+      }
+
+      .nav-actions {
+        order: 2;
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        
+        .language {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          cursor: pointer;
+          
+          img {
+            width: 16px;
+            height: 16px;
+          }
+          
+          span {
+            font-size: 14px;
+            letter-spacing: 0.5px;
+          }
+        }
+        
+        .btn-live, a:not(.language) {
+          display: none;
+        }
+      }
+
+      .hamburger {
+        order: 3;
+        margin-left: 1rem;
+        display: flex;
+      }
+    }
+
+    .hero-content {
+      width: 90%;
+      margin-top: 80px;
+      
+      h1 {
+        font-size: 40px;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        margin-bottom: 1rem;
+      }
+
+      h4 {
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 1rem 0 2rem 0;
+      }
+
+      .hero-buttons {
+        display: flex;
+        margin-top: 2rem;
+        
+        .btn-start-trading {
+          width: 175px;
+          padding: 16px 0;
+        }
+        
+        .btn.secondary {
+          padding: 16px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .hero-content {
+      width: 350px;
+      margin-top: 20px;
+      
+      h4 {
+        max-width: 217px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+        
+
+        .btn-start-trading {
+          width: 175px;
+        }
+
+      }
+    }
+  }
+
+  @media screen and (max-width: 360px) {
+    padding: 1rem;
+    overflow-x: hidden;
+    
+    .hero-content {
+      width: 320px;
+      margin: 0 auto;
+      padding: 0;
+      margin-top: 20px;
+      
+      h1 {
+        font-size: 36px;
+        line-height: 1.2;
+        max-width: 320px;
+        margin-bottom: 1rem;
+      }
+      
+      h4 {
+        font-size: 16px;
+        max-width: 320px;
+        margin-bottom: 2rem;
+      }
+
+      .hero-buttons {
+        width: 320px;
+        
+        .btn-start-trading {
+          max-width: 175px;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 1201px) {
+    .navbar {
+      .hamburger {
+        display: none;
+      }
+
+      .nav-links {
+        display: flex;
+        margin: 0 auto;
+        padding: 0 2rem;
+
+        li {
+          a {
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+          }
+        }
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+
+        .language {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          
+          img {
+            width: 16px;
+            height: 16px;
+          }
+          
+          span {
+            font-size: 14px;
+            letter-spacing: 0.5px;
+          }
+        }
+
+        a {
+          display: inline-block;
+          font-size: 14px;
+          text-transform: uppercase;
+        }
+
+        .btn-live {
+          background-color: #00bdff;
+          padding: 16px 24px;
+          border-radius: 32px;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
+  // Replace the tablet media query with these more specific breakpoints
+  @media screen and (min-width: 501px) and (max-width: 899px) {
+    .hero-content {
+      width: 90%;
+      margin: 3rem auto;
+
+      h1 {
+        font-size: 42px;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        margin-bottom: 1.5rem;
+        max-width: 700px;
+      }
+
+      h4 {
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 1.5rem 0 2.5rem 0;
+        max-width: 265px;
+      }
+    }
+  }
+
+  // New breakpoint for larger tablets
+  @media screen and (min-width: 900px) and (max-width: 1200px) {
+    .hero-content {
+      width: 800px; // Fixed width for this range
+      margin: 3rem auto;
+
+      h1 {
+        font-size: 54px; // Closer to desktop size
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin-bottom: 1.5rem;
+        max-width: 750px;
+      }
+
+      h4 {
+        font-size: 20px;
+        line-height: 1.4;
+        margin: 1.5rem 0 2.5rem 0;
+        max-width: 265px;
+      }
+
+      .hero-buttons {
+        gap: 1.5rem;
+      }
+    }
+  }
+
+  // Keep existing mobile styles for under 500px
+  @media screen and (max-width: 500px) {
+    .hero-content {
+      width: 350px;
+      // ... rest of mobile styles
+    }
+  }
+}
+
+// Laptop and larger screens (1201px and above)
+@media screen and (min-width: 1201px) {
+  .hero {
+    padding: 1rem 5rem;
+    
+    .navbar {
+      .hamburger {
+        display: none;
+      }
+
+      .nav-links {
+        display: flex;
+        margin: 0 auto;
+        padding: 0 2rem;
+
+        li {
+          a {
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+          }
+        }
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+
+        .language {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          
+          img {
+            width: 16px;
+            height: 16px;
+          }
+          
+          span {
+            font-size: 14px;
+            letter-spacing: 0.5px;
+          }
+        }
+
+        a {
+          display: inline-block;
+          font-size: 14px;
+          text-transform: uppercase;
+        }
+
+        .btn-live {
+          background-color: #00bdff;
+          padding: 16px 24px;
+          border-radius: 32px;
+          white-space: nowrap;
+        }
+      }
+    }
+
+    .hero-content {
+      h4 {
+        max-width: 265px;
+      }
+    }
+  }
+}
+
+.trade-section {
+  padding: 4rem 5rem;
+  background-color: #fff;
+
+  h3 {
+    @include text-style(600, 26px, 33.8px, -0.78px);
+  }
+
+  .trade-slider {
+    position: relative;
+    overflow: hidden;
+    
+    .trade-cards {
+      display: flex;
+      gap: 2rem;
+      transition: transform 0.3s ease;
+      
+      .trade-card {
+        min-width: 332px;
+        height: 416px;
+        background: #f8f9fa;
+        padding: 2rem;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        
+        h4 {
+          @include text-style(400, 22px, 28.6px, -0.66px);
+        }
+        
+        p {
+          font-size: 16px;
+          color: #666;
+          margin-bottom: 2rem;
+        }
+        
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          margin-top: auto;
+          max-height: 250px;
+        }
+      }
+    }
+
+    .slider-controls {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+
+      button {
+        width: 40px;
+        height: 40px;
+        border: 1px solid #ddd;
+        border-radius: 50%;
+        background: #fff;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: #f8f9fa;
+        }
+
+        &:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  // Tablet styles
+  @media screen and (max-width: 1200px) {
+    padding: 3rem 2rem;
+    
+    .trade-cards {
+      .trade-card {
+        min-width: 300px;
+        height: 380px;
+      }
+    }
+  }
+
+  // Mobile styles
+  @media screen and (max-width: 600px) {
+    padding: 2rem 1rem;
+    
+    h2 {
+      font-size: 24px;
+      margin-bottom: 2rem;
+    }
+    
+    .trade-cards {
+      .trade-card {
+        min-width: 280px;
+        height: 350px;
+        padding: 1.5rem;
+        
+        h3 {
+          font-size: 20px;
+        }
+        
+        p {
+          font-size: 14px;
+        }
+        
+        img {
+          max-height: 200px;
+        }
+      }
     }
   }
 }
