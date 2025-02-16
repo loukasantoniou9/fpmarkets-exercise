@@ -1,0 +1,89 @@
+$primary-color: #ffffff;
+$secondary-color: #19222e;
+
+@mixin text-style($font-weight, $font-size, $line-height, $letter-spacing) {
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+}
+
+@mixin button-style($background-color, $color, $border, $border-radius) {
+  background-color: $background-color;
+  color: $color;
+  border: $border;
+  border-radius: $border-radius;
+}
+
+a {
+  margin: 10px 8px 10px 8px;
+  @include text-style(400, 14px, 14px, 0);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+
+  header {
+    background: linear-gradient(to right, #08174e, #0f236b);
+    text-decoration: none;
+    color: $primary-color;
+    a {
+      text-decoration: none;
+      color: $primary-color;
+    }
+  }
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 1rem 5rem;
+  .navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include text-style(400, 14px, 14px, 10%);
+
+    .nav-links {
+      li {
+        display: inline-block;
+        a {
+          margin: 10px 12px 10px 12px;
+        }
+      }
+    }
+
+    .nav-actions {
+      //   a {
+
+      .btn-live {
+        padding: 16px 24px;
+        @include button-style(#00bdff, inherit, 1px, 32px);
+        @include text-style(400, 14px, 14px, 1px);
+      }
+    }
+  }
+  .hero-content {
+    h1 {
+      @include text-style(600, 60px, 60px, -5%);
+    }
+    h4 {
+      @include text-style(300, 22px, 28.6px, -3%);
+    }
+    .btn-start-trading {
+      padding: 16px 24px;
+      @include button-style(
+        transparent,
+        inherit,
+        1px solid $primary-color,
+        32px
+      );
+      @include text-style(400, 14px, 14px, 1px);
+    }
+  }
+}
+
