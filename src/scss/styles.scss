@@ -1,6 +1,7 @@
 // Variables
 $primary-color: #ffffff;
 $secondary-color: #19222e;
+$background-color: #f4f4f4;
 
 // Mixins
 @mixin text-style($font-weight, $font-size, $line-height, $letter-spacing) {
@@ -31,9 +32,29 @@ body {
   font-family: "Inter", sans-serif;
   height: 100vh;
 
+  h2 {
+    @include text-style(600, 40px, 44px, -1.2px);
+    font-family: "Inter", sans-serif;
+    color: $secondary-color;
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    @include text-style(300, 16px, 25.6px, -0.32px);
+    font-family: "Inter", sans-serif;
+    color: $secondary-color;
+  }
+
   header {
     height: 100vh;
-    background: linear-gradient(to right, #08174e, #0f236b 59.4%, #000000 59.4%);
+    min-height: 100vh;
+    background: 
+      url("../../dist/images/transparent_hero.png"),
+      linear-gradient(to right, #08174e, #0f236b 59.4%, transparent 59.4%),
+      url("../../dist/images/non-transparent_hero.png");
+    background-size: cover, cover, cover;
+    background-position: right center, center, right center;
+    background-repeat: no-repeat, no-repeat, no-repeat;
     text-decoration: none;
     color: $primary-color;
     a {
@@ -42,10 +63,82 @@ body {
     }
   }
 
-  // Mobile and tablet split (horizontal) - up to 1200px
+  // Tablet styles (601px to 1200px)
   @media screen and (max-width: 1200px) {
     header {
-      background: linear-gradient(to bottom, #08174e, #0f236b 70.5%, #000000 70.5%);
+      background: 
+        url("../../dist/images/transparent_hero.png"),
+        linear-gradient(to bottom, #08174e, #0f236b 70.5%, transparent 70.5%),
+        url("../../dist/images/non-transparent_hero.png");
+      background-size: 100% auto, cover, 100% auto;
+      background-position: center 90%, center, center 90%;
+      background-repeat: no-repeat, no-repeat, no-repeat;
+    }
+
+    h2 {
+      @include text-style(600, 36px, 40px, -1.08px);
+    }
+  }
+
+  // Mobile styles (below 600px)
+  @media screen and (max-width: 600px) {
+    header {
+      background-size: 180% auto, cover, 180% auto;
+      background-position: 75% 90%, center, 75% 90%;
+      background-repeat: no-repeat, no-repeat, no-repeat;
+    }
+
+    h2 {
+      @include text-style(600, 30px, 33px, -0.9px);
+    }
+
+    p {
+      @include text-style(300, 16px, 25.6px, -0.32px);
+    }
+  }
+
+  // Add landscape orientation styles for mobile devices
+  @media (orientation: landscape) and (max-height: 600px) {
+    body {
+      header {
+        height: 150vh;
+        min-height: 150vh;
+      }
+    }
+
+    .hero {
+      height: 150vh;
+      min-height: 150vh;
+      padding: 1rem;  // Reduced padding
+      
+      .hero-content {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        
+        h1, h4 {
+          margin-bottom: 1rem;
+        }
+        
+        .hero-buttons {
+          margin-top: 1rem;
+        }
+      }
+
+      // Additional adjustments for very small heights
+      @media (max-height: 400px) {
+        .hero-content {
+          h1 {
+            font-size: 28px;
+            margin-bottom: 0.5rem;
+          }
+          
+          h4 {
+            font-size: 14px;
+            margin-bottom: 0.5rem;
+          }
+        }
+      }
     }
   }
 }
@@ -57,6 +150,7 @@ a {
 
 // Hero Section
 .hero {
+  min-height: 100vh;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -120,8 +214,51 @@ a {
 
     @media screen and (max-width: 1200px) {
       .nav-links {
-        background: linear-gradient(to bottom, #08174e, #0f236b 70.5%, #000000 70.5%);
+        background: 
+          url("../../dist/images/transparent_hero.png"),
+          linear-gradient(to bottom, #08174e, #0f236b 70.5%, transparent 70.5%),
+          url("../../dist/images/non-transparent_hero.png");
+        background-size: cover, cover, cover;
+        background-position: bottom center, center, bottom center;
+        background-repeat: no-repeat, no-repeat, no-repeat;
       }
+    }
+
+    .nav-links {
+      &.active {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+        padding: 0;
+        background: 
+          linear-gradient(to bottom, #08174e, #0f236b 70.5%);
+
+        li {
+          margin: 1rem 0;
+          text-align: center;
+          
+          a {
+            font-size: 24px;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            margin: 0;
+            letter-spacing: 0;
+          }
+        }
+      }
+    }
+
+    .hamburger {
+      z-index: 2;
     }
   }
 
@@ -199,7 +336,11 @@ a {
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(to bottom, #08174e, #0f236b 70.5%, #000000 70.5%);
+        background: 
+          url("../../dist/images/transparent_hero.png"),
+          linear-gradient(to bottom, #08174e, #0f236b 70.5%, transparent 70.5%),
+          url("../../dist/images/non-transparent_hero.png");
+        background-size: cover;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -296,8 +437,9 @@ a {
   @media screen and (max-width: 600px) {
     .hero-content {
       width: 350px;
-      margin-top: 20px;
-      
+      margin: 0;
+      padding: 0;
+
       h4 {
         max-width: 217px;
       }
@@ -305,12 +447,10 @@ a {
       .hero-buttons {
         flex-direction: column;
         align-items: flex-start;
-        
 
         .btn-start-trading {
           width: 175px;
         }
-
       }
     }
   }
@@ -321,9 +461,8 @@ a {
     
     .hero-content {
       width: 320px;
-      margin: 0 auto;
+      margin: 0;
       padding: 0;
-      margin-top: 20px;
       
       h1 {
         font-size: 36px;
@@ -558,23 +697,30 @@ a {
         flex-shrink: 0;
         display: flex;
         flex-direction: column;
+        position: relative;
         
         h4 {
           @include text-style(400, 22px, 28.6px, -0.66px);
+          position: relative;
+          z-index: 2;
+          margin-bottom: 0;
         }
         
         p {
           font-size: 16px;
-          color: #666;
           margin-bottom: 2rem;
+          position: relative;
+          z-index: 2;
         }
         
         img {
+          position: absolute;
+          top: 0;
+          left: 0;
           width: 100%;
           height: 100%;
-          object-fit: contain;
-          margin-top: auto;
-          max-height: 250px;
+          object-fit: cover;
+          z-index: 1;
         }
       }
     }
@@ -582,20 +728,19 @@ a {
     .slider-controls {
       display: flex;
       gap: 1rem;
-      justify-content: center;
+      justify-content: left;
       margin-top: 2rem;
 
       button {
-        width: 40px;
-        height: 40px;
-        border: 1px solid #ddd;
-        border-radius: 50%;
-        background: #fff;
+        border: none;
+        background: none;
         cursor: pointer;
+        font-size: 24px;
+        color: #666;
         transition: all 0.3s ease;
 
         &:hover {
-          background: #f8f9fa;
+          color: #333;
         }
 
         &:disabled {
@@ -642,10 +787,120 @@ a {
         }
         
         img {
-          max-height: 200px;
+          height: 100%;
         }
       }
     }
   }
 }
 
+// Text color styles using classes
+.text-dark {
+  color: $secondary-color;
+}
+
+.desc-dark {
+  color: $secondary-color;
+}
+
+.text-light {
+  color: $primary-color;
+}
+
+.desc-light {
+  color: $primary-color;
+}
+
+// Currency and Stock Prices Section
+.currency-section {
+  background-color: $background-color;
+  margin: 4rem 5rem;
+  overflow-x: hidden;  // Prevent horizontal scroll
+
+  .currency-container {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 4rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+
+    .currency-image {
+      width: 361px;
+      height: 237px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .currency-content {
+      width: 400px;
+      height: 283px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      
+      h2, p {
+        margin: 0;
+        max-width: 100%;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1200px) and (min-width: 601px) {  // Specific tablet range
+    margin: 3rem 2rem;
+
+    .currency-container {
+      width: 100%;
+      max-width: 800px;
+      padding: 3rem 0;
+      flex-direction: column;
+      text-align: center;
+      
+      .currency-content {
+        width: 400px;  // Maintain width
+        margin: 0 auto;
+        order: 1;
+      }
+
+      .currency-image {
+        order: 2;
+        width: 311px;
+        height: 204px;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    margin: 2rem 1rem;
+
+    .currency-container {
+      width: 100%;
+      max-width: 310px;
+      padding: 2rem 0;
+      gap: 1.5rem;
+      flex-direction: column;
+      
+      .currency-content {
+        width: 310px;
+        height: 269px;
+        order: 1;
+      }
+
+      .currency-image {
+        order: 2;
+        width: 261px;
+        height: 172px;
+        margin: 0 auto;
+      }
+    }
+  }
+}
