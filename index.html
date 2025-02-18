@@ -42,9 +42,6 @@
           <a href="#" class="btn secondary">TRY DEMO</a>
         </div>
       </div>
-      <!-- <div class="hero-image">
-        <img src="hero-graphic.png" alt="Trading Assets" />
-      </div> -->
     </header>
 
     <section class="trade-section">
@@ -335,109 +332,6 @@
       </div>
     </footer>
 
-    <script>
-      document.querySelector('.hamburger').addEventListener('click', function() {
-        document.querySelector('.nav-links').classList.toggle('active');
-      });
-
-      document.addEventListener('DOMContentLoaded', function() {
-        const slider = document.querySelector('.trade-cards');
-        const cards = document.querySelectorAll('.trade-card');
-        const prevBtn = document.querySelector('.prev-btn');
-        const nextBtn = document.querySelector('.next-btn');
-        
-        let currentIndex = 0;
-        const cardWidth = cards[0].offsetWidth + 32; // Including gap
-
-        function updateSlider() {
-          const maxIndex = cards.length - 1; // Changed to show one card at a time
-          slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-          prevBtn.disabled = currentIndex === 0;
-          nextBtn.disabled = currentIndex >= maxIndex;
-        }
-
-        prevBtn.addEventListener('click', () => {
-          if (currentIndex > 0) {
-            currentIndex--;
-            updateSlider();
-          }
-        });
-
-        nextBtn.addEventListener('click', () => {
-          if (currentIndex < cards.length - 1) { // Changed to total cards minus 1
-            currentIndex++;
-            updateSlider();
-          }
-        });
-
-        // Initial setup
-        updateSlider();
-
-        // Update on window resize
-        window.addEventListener('resize', () => {
-          currentIndex = 0;
-          updateSlider();
-        });
-      });
-
-      // Add this to your existing script section
-      document.addEventListener('DOMContentLoaded', function() {
-        // Only run this code if we're on a mobile device (width <= 600px)
-        function initMobileMenu() {
-          if (window.innerWidth <= 600) {
-            const toggleButtons = document.querySelectorAll('.mobile-toggle');
-            
-            // Add click event listener to each button
-            toggleButtons.forEach(button => {
-              button.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Close all other open menus
-                const allMenus = document.querySelectorAll('.menu-list.active');
-                const allToggles = document.querySelectorAll('.mobile-toggle.active');
-                
-                allMenus.forEach(menu => {
-                  if (menu !== this.nextElementSibling) {
-                    menu.classList.remove('active');
-                  }
-                });
-                
-                allToggles.forEach(toggle => {
-                  if (toggle !== this) {
-                    toggle.classList.remove('active');
-                  }
-                });
-                
-                // Toggle current menu
-                this.classList.toggle('active');
-                const menuList = this.nextElementSibling;
-                menuList.classList.toggle('active');
-                
-                // Smooth scroll to show the expanded menu if it's below the viewport
-                if (menuList.classList.contains('active')) {
-                  const rect = menuList.getBoundingClientRect();
-                  if (rect.bottom > window.innerHeight) {
-                    window.scrollBy({
-                      top: rect.bottom - window.innerHeight + 20,
-                      behavior: 'smooth'
-                    });
-                  }
-                }
-              });
-            });
-          }
-        }
-
-        // Initialize on load
-        initMobileMenu();
-        
-        // Reinitialize when window is resized
-        let resizeTimer;
-        window.addEventListener('resize', function() {
-          clearTimeout(resizeTimer);
-          resizeTimer = setTimeout(initMobileMenu, 250);
-        });
-      });
-    </script>
+    <script type="module" src="src/js/main.js"></script>
   </body>
 </html>
