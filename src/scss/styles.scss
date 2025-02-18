@@ -811,6 +811,7 @@ a {
   position: relative;
   margin: 0 auto;
   margin-bottom: 4rem;
+  overflow: hidden;
 
   .currency-background {
     position: absolute;
@@ -838,7 +839,7 @@ a {
   
   .currency-container {
     position: absolute;
-    top: 0;
+    top: 100px;
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
@@ -871,31 +872,36 @@ a {
   // Desktop styles (above 1200px)
   @media screen and (min-width: 1201px) {
     .currency-image {
-      left: 50%;
-      transform: translateX(-50%);
       width: 1023px;
       height: auto;
       max-width: none;
-      margin-left: -400px;
     }
 
     .currency-container {
-      padding: 75px;
       align-items: flex-start;
     }
 
-    .currency-container .currency-content img {
-      width: 361px;
-      height: 237px;
+    .currency-container .currency-content {      
+      top: 30px;
+
+      img {
+        width: 361px;
+        height: 237px;
+      }
     }
   }
 
   // Tablet styles
   @media screen and (max-width: 1200px) {
+    height: 500px;
     .currency-image {
       width: 800px;
       height: auto;
       max-width: none;
+    }
+
+    .currency-container {
+      top: 0px;
     }
   }
 
@@ -903,41 +909,32 @@ a {
 
   // Mobile styles
   @media screen and (max-width: 800px) {
+    height: 637px;
+
     .currency-image {
-      left: 50%;
-      transform: translateX(-50%);
       bottom: 0;
-      width: 100%;
+      width: 700px;
       max-width: none;
       object-position: center bottom;
     }
 
     .currency-container {
+      margin-top: 48px;
       width: 79%;
       flex-direction: column-reverse;
       gap: 1rem;
 
       .currency-content {
         img {
+          width: 490px;
+          height: auto;
           padding-bottom: 4rem;
         }
       }
 
       .currency-text {
         padding-right: 0;
-        text-align: center;
-      }
-    }
-  }
-
-  // Larger mobile screens (400-600px)
-  @media screen and (min-width: 400px) and (max-width: 600px) {
-    .currency-container {
-      .currency-content {
-        img {
-          width: 290px;
-          height: 191px;
-        }
+        text-align: left;
       }
     }
   }
@@ -949,10 +946,13 @@ a {
         transform: translateY(-2rem);
         
         img {
-          width: 320px;
-          height: 210px;
+          width: 350px;
+          height: auto;
         }
       }
+    }
+    .currency-image {
+      width: 625px;
     }
   }
 
@@ -1498,7 +1498,7 @@ a {
   }
 
   // Mobile styles
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 800px) {
 
     .info-container {
       flex-direction: column;
