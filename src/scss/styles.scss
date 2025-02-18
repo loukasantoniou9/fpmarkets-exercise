@@ -306,6 +306,113 @@ a {
     }
   }
 
+  .hero-ticker {
+    display: none;
+    width: 100%;
+    background-color: rgba(10, 18, 28, 0.8);
+    padding: 20px 0;
+    position: absolute;
+    bottom: -2rem;
+    left: 0;
+    overflow: hidden;
+
+    .ticker-container {
+      width: 100%;
+      overflow: hidden;
+
+      .ticker-track {
+        display: flex;
+        animation: ticker 30s linear infinite;
+        width: fit-content;
+
+        &:hover {
+          animation-play-state: paused;
+        }
+
+        .ticker-items {
+          display: flex;
+          gap: 20px;
+          padding: 0 10px;
+
+          .ticker-item {
+            background: transparent;
+            padding: 10px 20px;
+            min-width: 280px;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+
+            .pair {
+              color: #ffffff;
+              font-size: 16px;
+              font-weight: 500;
+              margin-bottom: 10px;
+            }
+
+            .ticker-details {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 15px;
+
+              > div {
+                text-align: left;
+
+                span {
+                  display: block;
+                  color: #6B7280;
+                  font-size: 12px;
+                  margin-bottom: 5px;
+                }
+
+                .value {
+                  color: #00bdff;
+                  font-size: 16px;
+                  font-weight: 500;
+
+                  .decimal {
+                    font-size: 12px;
+                    color: #4B5563;
+                  }
+                }
+              }
+
+              .spread .value {
+                color: #ffffff;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .hero-content {
+    margin-bottom: 0;
+  }
+
+  // Show ticker and adjust content margin only for desktop
+  @media screen and (min-width: 1201px) {
+    .hero-ticker {
+      display: block;
+    }
+
+    .hero-content {
+      margin-bottom: 120px;
+    }
+  }
+
+  // Remove margin-bottom adjustments from other breakpoints
+  @media screen and (max-width: 1200px) {
+    .hero-content {
+      margin-bottom: 0;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .hero-content {
+      margin-bottom: 0;
+    }
+  }
+
+  // Responsive adjustments
   @media screen and (max-width: 1200px) {
     padding: 1rem;
     
@@ -397,6 +504,7 @@ a {
     .hero-content {
       width: 90%;
       margin-top: 80px;
+      margin-bottom: 100px;
       
       h1 {
         font-size: 40px;
@@ -432,6 +540,7 @@ a {
       width: 350px;
       margin: 0;
       padding: 0;
+      margin-bottom: 80px;
 
       h4 {
         max-width: 217px;
@@ -1080,7 +1189,6 @@ a {
     width: 90%;
     height: 100%;
     overflow-x: visible;  // Allow horizontal overflow
-    overflow-y: hidden;   // Keep vertical overflow hidden
     z-index: 3;
     display: flex;
     align-items: center;
@@ -1592,5 +1700,95 @@ a {
         }
       }
     }
+  }
+}
+
+.ticker-section {
+  width: 100%;
+  background-color: #0A121C;
+  padding: 20px 0;
+  overflow: hidden;
+
+  .ticker-container {
+    width: 100%;
+    overflow: hidden;
+
+    .ticker-track {
+      display: flex;
+      animation: ticker 30s linear infinite;
+      width: fit-content;
+
+      &:hover {
+        animation-play-state: paused;
+      }
+
+      .ticker-items {
+        display: flex;
+        gap: 20px;
+        padding: 0 10px;
+
+        .ticker-item {
+          background: transparent;
+          padding: 10px 20px;
+          min-width: 280px;
+          border-right: 1px solid rgba(255, 255, 255, 0.1);
+
+          .pair {
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 10px;
+          }
+
+          .ticker-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+
+            > div {
+              text-align: left;
+
+              span {
+                display: block;
+                color: #6B7280;
+                font-size: 12px;
+                margin-bottom: 5px;
+              }
+
+              .value {
+                color: #00bdff;
+                font-size: 16px;
+                font-weight: 500;
+
+                .decimal {
+                  font-size: 12px;
+                  color: #4B5563;
+                }
+              }
+            }
+
+            .spread .value {
+              color: #ffffff;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+// Optional: Pause animation on mobile devices
+@media (hover: none) {
+  .ticker-track {
+    animation-play-state: running !important;
   }
 }
