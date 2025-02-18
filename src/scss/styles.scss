@@ -48,8 +48,7 @@ body {
   header {
     height: 100vh;
     min-height: 100vh;
-    background: 
-      url("../../dist/images/transparent_hero.png"),
+    background: url("../../dist/images/transparent_hero.png"),
       linear-gradient(to right, #08174e, #0f236b 59.4%, transparent 59.4%),
       url("../../dist/images/non-transparent_hero.png");
     background-size: cover, cover, cover;
@@ -66,8 +65,7 @@ body {
   // Tablet styles (601px to 1200px)
   @media screen and (max-width: 1200px) {
     header {
-      background: 
-        url("../../dist/images/transparent_hero.png"),
+      background: url("../../dist/images/transparent_hero.png"),
         linear-gradient(to bottom, #08174e, #0f236b 70.5%, transparent 70.5%),
         url("../../dist/images/non-transparent_hero.png");
       background-size: 100% auto, cover, 100% auto;
@@ -109,17 +107,18 @@ body {
     .hero {
       height: 150vh;
       min-height: 150vh;
-      padding: 1rem;  // Reduced padding
-      
+      padding: 1rem; // Reduced padding
+
       .hero-content {
         margin: 0;
         padding: 0;
         height: 100vh;
-        
-        h1, h4 {
+
+        h1,
+        h4 {
           margin-bottom: 1rem;
         }
-        
+
         .hero-buttons {
           margin-top: 1rem;
         }
@@ -132,7 +131,7 @@ body {
             font-size: 28px;
             margin-bottom: 0.5rem;
           }
-          
+
           h4 {
             font-size: 14px;
             margin-bottom: 0.5rem;
@@ -157,6 +156,10 @@ a {
   text-align: left;
   padding: 1rem 5rem;
 
+  @media screen and (min-width: 1201px) {
+    height: 150vh;
+  }
+
   // Navbar Styles
   .navbar {
     width: 100%;
@@ -173,7 +176,6 @@ a {
         }
       }
     }
-
 
     .hamburger {
       display: none;
@@ -207,8 +209,7 @@ a {
 
     @media screen and (max-width: 1200px) {
       .nav-links {
-        background: 
-          url("../../dist/images/transparent_hero.png"),
+        background: url("../../dist/images/transparent_hero.png"),
           linear-gradient(to bottom, #08174e, #0f236b 70.5%, transparent 70.5%),
           url("../../dist/images/non-transparent_hero.png");
         background-size: cover, cover, cover;
@@ -232,13 +233,12 @@ a {
         bottom: 0;
         margin: 0;
         padding: 0;
-        background: 
-          linear-gradient(to bottom, #08174e, #0f236b 70.5%);
+        background: linear-gradient(to bottom, #08174e, #0f236b 70.5%);
 
         li {
           margin: 1rem 0;
           text-align: center;
-          
+
           a {
             font-size: 24px;
             font-weight: 500;
@@ -312,7 +312,7 @@ a {
     background-color: rgba(10, 18, 28, 0.8);
     padding: 20px 0;
     position: absolute;
-    bottom: -2rem;
+    bottom: -23rem;
     left: 0;
     overflow: hidden;
 
@@ -357,7 +357,7 @@ a {
 
                 span {
                   display: block;
-                  color: #6B7280;
+                  color: #6b7280;
                   font-size: 12px;
                   margin-bottom: 5px;
                 }
@@ -369,7 +369,7 @@ a {
 
                   .decimal {
                     font-size: 12px;
-                    color: #4B5563;
+                    color: #4b5563;
                   }
                 }
               }
@@ -415,13 +415,12 @@ a {
   // Responsive adjustments
   @media screen and (max-width: 1200px) {
     padding: 1rem;
-    
+
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding-top: 12px;
-
 
       .logo {
         font-size: 18px;
@@ -436,8 +435,7 @@ a {
         left: 0;
         right: 0;
         bottom: 0;
-        background: 
-          url("../../dist/images/transparent_hero.png"),
+        background: url("../../dist/images/transparent_hero.png"),
           linear-gradient(to bottom, #08174e, #0f236b 70.5%, transparent 70.5%),
           url("../../dist/images/non-transparent_hero.png");
         background-size: cover;
@@ -454,7 +452,7 @@ a {
           display: block;
           margin: 2.5rem 0;
           text-align: center;
-          
+
           a {
             font-size: 24px;
             font-weight: 500;
@@ -471,25 +469,26 @@ a {
         display: flex;
         align-items: center;
         gap: 1rem;
-        
+
         .language {
           display: flex;
           align-items: center;
           gap: 8px;
           cursor: pointer;
-          
+
           img {
             width: 16px;
             height: 16px;
           }
-          
+
           span {
             font-size: 14px;
             letter-spacing: 0.5px;
           }
         }
-        
-        .btn-live, a:not(.language) {
+
+        .btn-live,
+        a:not(.language) {
           display: none;
         }
       }
@@ -505,7 +504,7 @@ a {
       width: 90%;
       margin-top: 80px;
       margin-bottom: 100px;
-      
+
       h1 {
         font-size: 40px;
         line-height: 1.2;
@@ -522,12 +521,12 @@ a {
       .hero-buttons {
         display: flex;
         margin-top: 2rem;
-        
+
         .btn-start-trading {
           width: 175px;
           padding: 16px 0;
         }
-        
+
         .btn.secondary {
           padding: 16px;
         }
@@ -560,19 +559,19 @@ a {
   @media screen and (max-width: 360px) {
     padding: 1rem;
     overflow-x: hidden;
-    
+
     .hero-content {
       width: 320px;
       margin: 0;
       padding: 0;
-      
+
       h1 {
         font-size: 36px;
         line-height: 1.2;
         max-width: 320px;
         margin-bottom: 1rem;
       }
-      
+
       h4 {
         font-size: 16px;
         max-width: 320px;
@@ -581,7 +580,7 @@ a {
 
       .hero-buttons {
         width: 320px;
-        
+
         .btn-start-trading {
           max-width: 175px;
           width: 100%;
@@ -619,12 +618,12 @@ a {
           display: flex;
           align-items: center;
           gap: 12px;
-          
+
           img {
             width: 16px;
             height: 16px;
           }
-          
+
           span {
             font-size: 14px;
             letter-spacing: 0.5px;
@@ -710,7 +709,7 @@ a {
 @media screen and (min-width: 1201px) {
   .hero {
     padding: 1rem 5rem;
-    
+
     .navbar {
       .hamburger {
         display: none;
@@ -739,12 +738,12 @@ a {
           display: flex;
           align-items: center;
           gap: 12px;
-          
+
           img {
             width: 16px;
             height: 16px;
           }
-          
+
           span {
             font-size: 14px;
             letter-spacing: 0.5px;
@@ -785,12 +784,12 @@ a {
   .trade-slider {
     position: relative;
     overflow: hidden;
-    
+
     .trade-cards {
       display: flex;
       gap: 2rem;
       transition: transform 0.3s ease;
-      
+
       .trade-card {
         min-width: 332px;
         height: 416px;
@@ -800,21 +799,21 @@ a {
         display: flex;
         flex-direction: column;
         position: relative;
-        
+
         h4 {
           @include text-style(400, 22px, 28.6px, -0.66px);
           position: relative;
           z-index: 2;
           margin-bottom: 0;
         }
-        
+
         p {
           font-size: 16px;
           margin-bottom: 2rem;
           position: relative;
           z-index: 2;
         }
-        
+
         img {
           position: absolute;
           top: 0;
@@ -856,7 +855,7 @@ a {
   // Tablet styles
   @media screen and (max-width: 1200px) {
     padding: 3rem 2rem;
-    
+
     .trade-cards {
       .trade-card {
         min-width: 300px;
@@ -868,26 +867,26 @@ a {
   // Mobile styles
   @media screen and (max-width: 600px) {
     padding: 2rem 1rem;
-    
+
     h2 {
       font-size: 24px;
       margin-bottom: 2rem;
     }
-    
+
     .trade-cards {
       .trade-card {
         min-width: 280px;
         height: 350px;
         padding: 1.5rem;
-        
+
         h3 {
           font-size: 20px;
         }
-        
+
         p {
           font-size: 14px;
         }
-        
+
         img {
           height: 100%;
         }
@@ -945,7 +944,7 @@ a {
     object-position: left bottom;
     z-index: 2;
   }
-  
+
   .currency-container {
     position: absolute;
     top: 100px;
@@ -964,7 +963,7 @@ a {
       display: flex;
       justify-content: center;
       align-items: center;
-      
+
       img {
         width: 361px;
         height: 237px;
@@ -990,7 +989,7 @@ a {
       align-items: flex-start;
     }
 
-    .currency-container .currency-content {      
+    .currency-container .currency-content {
       top: 30px;
 
       img {
@@ -1013,8 +1012,6 @@ a {
       top: 0px;
     }
   }
-
-  
 
   // Mobile styles
   @media screen and (max-width: 800px) {
@@ -1053,7 +1050,7 @@ a {
     .currency-container {
       .currency-content {
         transform: translateY(-2rem);
-        
+
         img {
           width: 350px;
           height: auto;
@@ -1081,7 +1078,7 @@ a {
 .features-section {
   padding: 4rem 0;
   background-color: $primary-color;
-  
+
   .section-title {
     text-align: center;
     max-width: 800px;
@@ -1154,8 +1151,8 @@ a {
   width: 100%;
   height: 637px;
   position: relative;
-  overflow-x: visible;  // Allow horizontal overflow
-  overflow-y: hidden;   // Keep vertical overflow hidden
+  overflow-x: visible; // Allow horizontal overflow
+  overflow-y: hidden; // Keep vertical overflow hidden
 
   .copy-background {
     position: absolute;
@@ -1188,7 +1185,7 @@ a {
     transform: translateX(-50%);
     width: 90%;
     height: 100%;
-    overflow-x: visible;  // Allow horizontal overflow
+    overflow-x: visible; // Allow horizontal overflow
     z-index: 3;
     display: flex;
     align-items: center;
@@ -1234,7 +1231,7 @@ a {
     .copy-container {
       top: 50%;
       transform: translate(-50%, -50%);
-      
+
       .copy-text {
         justify-content: center;
       }
@@ -1257,13 +1254,12 @@ a {
 
     .copy-container {
       .copy-text {
-        max-width: 355px;  // Middle size between desktop and mobile
-        height: 279px;     // Middle size between desktop and mobile
+        max-width: 355px; // Middle size between desktop and mobile
+        height: 279px; // Middle size between desktop and mobile
       }
     }
   }
 
-  
   @media screen and (min-width: 600px) and (max-width: 1200px) {
     height: 500px;
   }
@@ -1289,7 +1285,7 @@ a {
       flex-direction: column;
       align-items: center;
       gap: 2rem;
-      padding-top: 3rem;  // Increased from 2rem to 5rem to move text down
+      padding-top: 3rem; // Increased from 2rem to 5rem to move text down
 
       .copy-text {
         max-width: 310px;
@@ -1297,14 +1293,14 @@ a {
         padding-right: 0;
         text-align: center;
         margin-bottom: 2rem;
-        transform: translateY(2rem);  // Added to move text down further
+        transform: translateY(2rem); // Added to move text down further
 
         h2 {
           margin-bottom: 1rem;
         }
-        
+
         .btn-live {
-          align-self: center;  // Center button on mobile
+          align-self: center; // Center button on mobile
         }
       }
     }
@@ -1313,11 +1309,11 @@ a {
   // Specific tablet styles (600px to 800px)
   @media screen and (min-width: 600px) and (max-width: 1000px) {
     .copy-iphones-image {
-      width: 400px;  // Smaller width
+      width: 400px; // Smaller width
       height: auto;
-      right: 0px;  // Move more to the right
-      left: auto;    // Reset left position
-      transform: none;  // Remove transform
+      right: 0px; // Move more to the right
+      left: auto; // Reset left position
+      transform: none; // Remove transform
       bottom: -150px;
     }
   }
@@ -1330,8 +1326,11 @@ a {
   margin: 0 auto;
   position: relative;
   overflow: hidden;
-  background: 
-    linear-gradient(to right, transparent 34%, rgba(0, 189, 255, 0.8) 34%),
+  background: linear-gradient(
+      to right,
+      transparent 34%,
+      rgba(0, 189, 255, 0.8) 34%
+    ),
     url("../../dist/images/people_non_transparent.png");
   background-size: auto 100%;
   background-position: left;
@@ -1342,7 +1341,7 @@ a {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    
+
     img {
       position: absolute;
       left: -100px;
@@ -1376,8 +1375,8 @@ a {
   @media screen and (min-width: 601px) {
     .trusted-content {
       left: 50%;
-      transform: translate(-50%, -50%);  // Center horizontally and vertically
-      text-align: left;  // Center text
+      transform: translate(-50%, -50%); // Center horizontally and vertically
+      text-align: left; // Center text
     }
   }
 
@@ -1386,7 +1385,11 @@ a {
     width: 100%;
     height: 727px;
     margin: 0 auto;
-    background: linear-gradient(to right, transparent 0%, rgba(0, 189, 255, .8) 0%), 
+    background: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0, 189, 255, 0.8) 0%
+      ),
       url(../../dist/images/people_non_transparent.png);
     background-size: auto 100%;
     background-position: -90px;
@@ -1399,14 +1402,18 @@ a {
   // Mobile styles
   @media screen and (max-width: 600px) {
     height: 700px;
-    margin: 0 auto;  // Keep centered on mobile
-    background: linear-gradient(to right, transparent 0%, rgba(0, 189, 255, .8) 0%), 
+    margin: 0 auto; // Keep centered on mobile
+    background: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0, 189, 255, 0.8) 0%
+      ),
       url(../../dist/images/people_non_transparent.png);
     background-size: auto 100%;
     background-position: -90px;
 
     .trusted-background {
-      display: none;  // Hide the transparent image on mobile
+      display: none; // Hide the transparent image on mobile
     }
   }
 
@@ -1414,11 +1421,11 @@ a {
   @media screen and (min-width: 1201px) {
     .trusted-content {
       left: auto;
-      right: 0;  // Changed from 5% to 0
+      right: 0; // Changed from 5% to 0
       transform: translateY(-50%);
       text-align: left;
       max-width: 500px;
-      padding-right: 100px;  // Increased padding from 20px to 100px
+      padding-right: 100px; // Increased padding from 20px to 100px
     }
   }
 }
@@ -1447,7 +1454,7 @@ a {
     grid-template-columns: repeat(6, 1fr);
     gap: 30px;
     max-width: 1200px;
-    margin: 0 ;
+    margin: 0;
     padding: 40px;
 
     .menu-column {
@@ -1491,7 +1498,6 @@ a {
     }
   }
 
-  
   @media screen and (min-width: 601px) {
     .mobile-toggle {
       display: none;
@@ -1504,11 +1510,11 @@ a {
 
     .menu-container {
       grid-template-columns: 1fr;
-      gap: 0;  // Remove gap for mobile
+      gap: 0; // Remove gap for mobile
       padding: 20px;
 
       .menu-column {
-        border-bottom: 1px solid #e5e5e5;  // Add separator between sections
+        border-bottom: 1px solid #e5e5e5; // Add separator between sections
 
         .menu-title {
           display: none;
@@ -1607,7 +1613,6 @@ a {
 
   // Mobile styles
   @media screen and (max-width: 800px) {
-
     .info-container {
       flex-direction: column;
       gap: 20px;
@@ -1629,7 +1634,7 @@ a {
   width: 100%;
   margin: 0 auto;
   padding: 80px 0;
-  background-color: #0A121C;
+  background-color: #0a121c;
 
   .footer-container {
     max-width: 1200px;
@@ -1654,13 +1659,12 @@ a {
             text-decoration: none;
             font-size: 14px;
           }
-  
+
           span {
             color: #e5e5e5;
             font-size: 14px;
           }
         }
-        
       }
 
       .footer-legal {
@@ -1705,7 +1709,7 @@ a {
 
 .ticker-section {
   width: 100%;
-  background-color: #0A121C;
+  background-color: #0a121c;
   padding: 20px 0;
   overflow: hidden;
 
@@ -1750,7 +1754,7 @@ a {
 
               span {
                 display: block;
-                color: #6B7280;
+                color: #6b7280;
                 font-size: 12px;
                 margin-bottom: 5px;
               }
@@ -1762,7 +1766,7 @@ a {
 
                 .decimal {
                   font-size: 12px;
-                  color: #4B5563;
+                  color: #4b5563;
                 }
               }
             }
