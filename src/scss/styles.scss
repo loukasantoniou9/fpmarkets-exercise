@@ -809,97 +809,295 @@ a {
 
 .desc-light {
   color: $primary-color;
-}
+} 
 
-// Currency and Stock Prices Section
-.currency-section {
-  background-color: $background-color;
-  margin: 4rem 5rem;
-  overflow-x: hidden;  // Prevent horizontal scroll
 
-  .currency-container {
-    width: 1000px;
-    margin: 0 auto;
-    padding: 4rem 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 2rem;
+// .currency-section {
+//   position: relative;
+//   height: 637px;
+//   background: url("../../dist/images/dollar_euro_pound.png");
+//   background-size: contain;
+//   background-repeat: no-repeat;
+//   background-position: left 350%;  // Changed to move image down (75% from top)
 
-    .currency-image {
-      width: 361px;
-      height: 237px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+//   .currency-background {
+//     background-color: red;
+//     // width: 1000px;
+//   }
+
+//   .currency-wrapper {
+//       position: relative;
+
+//       margin: 0;
+//       height: 637px;
+//       background: url("../../dist/images/dollar_euro_pound.png");
+//       background-size: contain;
+//       background-repeat: no-repeat;
+//       background-position: left 350%;
+//       display: flex;
+//       justify-content: center;
+//       margin: 0 auto;
       
+
+//   .currency-container {
+//           position: relative;
+//           width: 1000px;
+//           margin: 0 auto;
+//           display: flex;
+//           justify-content: space-between;
+//           align-items: flex-start;
+//           gap: 2rem;
+    
+//           .currency-image {
+//             width: 361px;
+//             height: 237px;
+//             display: flex;
+//             justify-content: center;
+//             align-items: center;
+//             position: relative;
+//             z-index: 3;
+            
+//             img {
+//               width: 100%;
+//               height: 100%;
+//               object-fit: contain;
+//             }
+//           }
+
+//   .currency-content {
+//     width: 400px;
+    
+//     h2, p {
+//       margin: 0;
+//       max-width: 100%;
+//       text-align: left;
+//     }
+//   }
+// }
+// }
+// }
+
+// .currency-wrapper {
+//   position: relative;
+//   // width: 100%;
+//   margin: 0;
+//   height: 637px;
+//   background: url("../../dist/images/dollar_euro_pound.png");
+//   background-size: contain;
+//   background-repeat: no-repeat;
+//   background-position: left;
+//   display: flex;
+//   justify-content: center;
+//   margin: 0 auto;
+
+//   .currency-background {
+//     // width: 1200px;
+//     background-color: $background-color;
+//     background: url("../../dist/images/dollar_euro_pound.png"), $background-color;
+//     background-size: contain;
+//     background-repeat: no-repeat;
+//     // background-position: bottom;
+//     background-position-x: left;
+//     background-position-y: bottom;
+//     display: flex;
+//     justify-content: center;
+//   }
+
+//   // &::before {
+//   //   content: '';
+//   //   position: absolute;
+//   //   top: 0;
+//   //   left: 0;
+//   //   width: 100%;
+//   //   height: 637px;
+//   //   // background: url("../../dist/images/dollar_euro_pound.png");
+//   //   background-size: contain;
+//   //   background-repeat: no-repeat;
+//   //   background-position: center;
+//   //   z-index: 2;
+//   // }
+
+//   .currency-section {
+//     position: relative;
+//     margin: 0 auto;
+//     max-width: 1200px;
+//     overflow: visible;
+//     // padding: 2rem;
+//     height: 637px;
+//     display: flex;
+//     align-items: center;
+//     background-color: transparent;
+//     width: 1000px;
+//     z-index: 1;
+
+//     .currency-container {
+//       position: relative;
+//       width: 1000px;
+//       margin: 0 auto;
+//       display: flex;
+//       justify-content: space-between;
+//       align-items: flex-start;
+//       gap: 2rem;
+
+//       .currency-image {
+//         width: 361px;
+//         height: 237px;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         position: relative;
+//         z-index: 3;
+        
+//         img {
+//           width: 100%;
+//           height: 100%;
+//           object-fit: contain;
+//         }
+//       }
+
+//       .currency-content {
+//         width: 400px;
+//         height: 283px;
+//         display: flex;
+//         flex-direction: column;
+//         gap: 32px;
+        
+//         h2, p {
+//           margin: 0;
+//           max-width: 100%;
+//           text-align: left;
+//         }
+//       }
+//     }
+
+//     @media screen and (max-width: 1200px) and (min-width: 601px) {
+//       margin: 3rem 2rem;
+
+//       .currency-container {
+//         width: 100%;
+//         max-width: 800px;
+//         padding: 3rem 0;
+//         flex-direction: column;
+        
+//         .currency-content {
+//           width: 400px;
+//           margin: 0 auto;
+//           order: 1;
+
+//           h2, p {
+//             text-align: center;
+//           }
+//         }
+
+//         .currency-image {
+//           order: 2;
+//           width: 311px;
+//           height: 204px;
+//           margin: 0 auto;
+//         }
+//       }
+//     }
+
+//     @media screen and (max-width: 600px) {
+//       margin: 2rem 1rem;
+
+//       .currency-container {
+//         width: 100%;
+//         max-width: 310px;
+//         padding: 2rem 0;
+//         flex-direction: column;
+//         gap: 4.5rem;
+        
+//         .currency-content {
+//           width: 310px;
+//           height: 269px;
+//           order: 1;
+//           gap: 32px;
+
+//           h2, p {
+//             text-align: left;
+//             margin: 0;
+//           }
+//         }
+
+//         .currency-image {
+//           order: 2;
+//           width: 261px;
+//           height: 172px;
+//           margin: 0 auto;
+//         }
+//       }
+//     }
+//   }
+// }
+
+.features-section {
+  padding: 4rem 0;
+  background-color: $primary-color;
+  
+  .section-title {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+  }
+
+  .features-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    .feature-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 228px;
+      background-color: $background-color;
+      padding: 2rem;
+
       img {
-        width: 100%;
-        height: 100%;
+        width: 80px;
+        height: 80px;
+        margin-bottom: 1rem;
         object-fit: contain;
       }
-    }
 
-    .currency-content {
-      width: 400px;
-      height: 283px;
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-      
-      h2, p {
+      p {
         margin: 0;
-        max-width: 100%;
+        font-size: 16px;
+        line-height: 1.4;
+        color: $secondary-color;
       }
     }
   }
 
-  @media screen and (max-width: 1200px) and (min-width: 601px) {  // Specific tablet range
-    margin: 3rem 2rem;
+  // Tablet styles
+  @media screen and (max-width: 1200px) {
+    .features-container {
+      flex-wrap: wrap;
+      gap: 3rem;
 
-    .currency-container {
-      width: 100%;
-      max-width: 800px;
-      padding: 3rem 0;
-      flex-direction: column;
-      text-align: center;
-      
-      .currency-content {
-        width: 400px;  // Maintain width
-        margin: 0 auto;
-        order: 1;
-      }
-
-      .currency-image {
-        order: 2;
-        width: 311px;
-        height: 204px;
-        margin: 0 auto;
+      .feature-item {
+        width: calc(33.33% - 2rem);
       }
     }
   }
 
+  // Mobile styles
   @media screen and (max-width: 600px) {
-    margin: 2rem 1rem;
+    padding: 3rem 1rem;
 
-    .currency-container {
-      width: 100%;
-      max-width: 310px;
-      padding: 2rem 0;
-      gap: 1.5rem;
+    .features-container {
       flex-direction: column;
-      
-      .currency-content {
-        width: 310px;
-        height: 269px;
-        order: 1;
-      }
+      align-items: center;
+      gap: 2rem;
 
-      .currency-image {
-        order: 2;
-        width: 261px;
-        height: 172px;
-        margin: 0 auto;
+      .feature-item {
+        width: 100%;
+        max-width: 200px;
       }
     }
   }
