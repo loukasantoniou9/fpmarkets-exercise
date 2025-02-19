@@ -46,7 +46,7 @@ gulp
 
 ### Additional Notes
 
-- **BrowserSync** was used during development to automatically reload the project when changes are saved.
 - It is recommended to wait approximately **5-6 minutes** for all photos to be placed into the `dist` folder, which will be created upon running the `gulp` command.
+- **BrowserSync** was used during development to automatically reload the project when changes are saved.
 
 Thank you for your time!
