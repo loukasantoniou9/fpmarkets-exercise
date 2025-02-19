@@ -48,5 +48,6 @@ gulp
 
 - It is recommended to wait approximately **5-6 minutes** for all photos to be placed into the `dist` folder, which will be created upon running the `gulp` command.
 - **BrowserSync** was used during development to automatically reload the project when changes are saved.
+- Tablet screens are also handled on the code, so it is responsive on all kind of devices. Since a **Figma** design wasn't provided for tablet screens, it was assumed that would be something between the mobile and the desktop version.
 
 Thank you for your time!
